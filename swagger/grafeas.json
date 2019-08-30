@@ -233,7 +233,7 @@
         ]
       }
     },
-    "/v1beta1/{name=projects/*/occurrences/*}/notes": {
+    "/v1beta1/{projects}/notes": {
       "get": {
         "summary": "Gets the note attached to the specified occurrence. Consumer projects can\nuse this method to get a note that belongs to a provider project.",
         "operationId": "GetOccurrenceNote",
@@ -496,7 +496,7 @@
         ]
       }
     },
-    "/v1beta1/{parent=projects/*}/occurrences:vulnerabilitySummary": {
+    "/v1beta1/{parent}/occurrences:vulnerabilitySummary": {
       "get": {
         "summary": "Gets a summary of the number and severity of occurrences.",
         "operationId": "GetVulnerabilityOccurrencesSummary",

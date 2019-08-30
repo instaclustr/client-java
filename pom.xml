@@ -1,18 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>io.swagger</groupId>
-  <artifactId>swagger-java-client</artifactId>
+  <groupId>io.instaclustr</groupId>
+  <artifactId>grafeas-java-client-beta</artifactId>
   <packaging>jar</packaging>
-  <name>swagger-java-client</name>
-  <version>1.0.0</version>
+  <name>grafeas-java-client-beta</name>
+  <version>1.0.1</version>
   <url>https://github.com/swagger-api/swagger-codegen</url>
-  <description>Swagger Java</description>
-  <scm>
-    <connection>scm:git:git@github.com:swagger-api/swagger-codegen.git</connection>
-    <developerConnection>scm:git:git@github.com:swagger-api/swagger-codegen.git</developerConnection>
-    <url>https://github.com/swagger-api/swagger-codegen</url>
-  </scm>
+  <description>Grafeas Java Client</description>
   <prerequisites>
     <maven>2.2.0</maven>
   </prerequisites>
@@ -27,10 +22,10 @@
 
   <developers>
     <developer>
-      <name>Swagger</name>
-      <email>apiteam@swagger.io</email>
-      <organization>Swagger</organization>
-      <organizationUrl>http://swagger.io</organizationUrl>
+      <name>Instaclustr</name>
+      <email>support@instaclustr.com</email>
+      <organization>Instaclustr</organization>
+      <organizationUrl>http://instaclustr.com</organizationUrl>
     </developer>
   </developers>
 
@@ -142,7 +137,25 @@
         </executions>
       </plugin>
     </plugins>
+    <extensions>
+    <extension>
+      <groupId>org.springframework.build</groupId>
+      <artifactId>aws-maven</artifactId>
+      <version>5.0.0.RELEASE</version>
+    </extension>
+  </extensions>
   </build>
+
+<distributionManagement>
+  <snapshotRepository>
+    <id>maven-repo-id</id>
+    <url>s3://maven-repo-id/snapshot</url>
+  </snapshotRepository>
+  <repository>
+    <id>maven-repo-id</id>
+    <url>s3://maven-repo-id/release</url>
+  </repository>
+</distributionManagement>
 
   <profiles>
     <profile>
