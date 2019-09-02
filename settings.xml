@@ -5,10 +5,15 @@
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
     <servers>
         <server>
-            <id>maven-repo</id>
-            <username>username</username>
-            <password>password</password>
+            <id>${repo.id}</id>
+            <username>${repo.username}</username>
+            <password>${repo.password}</password>
         </server>
     </servers>
+    <properties> 
+        <repo.id>maven</repo.id>
+        <repo.username>username</repo.username>
+        <repo.username>password</repo.username>
+    </properties>
 
 </settings>
