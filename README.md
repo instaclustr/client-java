@@ -11,7 +11,7 @@ To modify and generate the source code, modify the swagger/grafeas.json file, in
 
 This will generate the java client for grafeas, which you can use as a library in your grafeas project.
 
-Also, an S3 bucket is used to deploy the generated jar to. To configure it and successfully upload the jar, update the properties in both pom.xml and settings.xml and execute
+An S3 bucket is used as the location for deploying the generated jar. To configure it and successfully upload the jar, update the properties in both pom.xml and settings.xml and execute
 
     mvn --settings settings.xml deploy -Drepo.id=maven-repo.net  -Drepo.username=username -Drepo.password=pwd
 
