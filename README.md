@@ -13,5 +13,5 @@ This will generate the java client for grafeas, which you can use as a library i
 
 An S3 bucket is used as the location for deploying the generated jar. To configure it and successfully upload the jar, update the properties in both pom.xml and settings.xml and execute
 
-    mvn --settings settings.xml deploy -Drepo.id=maven-repo.net  -Drepo.username=username -Drepo.password=pwd
+    AWS_ACCESS_KEY=<access_key> AWS_SECRET_KEY=<secret_key> mvn --settings settings.xml deploy -P dev / preprod
 

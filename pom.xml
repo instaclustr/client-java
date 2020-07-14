@@ -136,28 +136,66 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.owasp</groupId>
+        <artifactId>dependency-check-maven</artifactId>
+        <version>5.3.0</version>
+        <configuration>
+          <failBuildOnCVSS>9</failBuildOnCVSS>
+          <formats>HTML,JSON</formats>
+          <suppressionFile>owasp-suppression.xml</suppressionFile>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>aggregate</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
     <extensions>
-    <extension>
-      <groupId>org.springframework.build</groupId>
-      <artifactId>aws-maven</artifactId>
-      <version>5.0.0.RELEASE</version>
-    </extension>
-  </extensions>
+      <extension>
+        <groupId>com.gkatzioura.maven.cloud</groupId>
+        <artifactId>s3-storage-wagon</artifactId>
+        <version>1.8</version>
+      </extension>
+    </extensions>
   </build>
 
-<distributionManagement>
-  <snapshotRepository>
-    <id>${repo.id}</id>
-    <url>s3://${repo.id}/snapshot</url>
-  </snapshotRepository>
-  <repository>
-    <id>${repo.id}</id>
-    <url>s3://${repo.id}/release</url>
-  </repository>
-</distributionManagement>
-
   <profiles>
+    <profile>
+      <id>dev</id>
+      <properties>
+        <profile.name>dev</profile.name>
+      </properties>
+      <distributionManagement>
+        <snapshotRepository>
+          <id>instaclustr-maven-s3</id>
+          <url>s3://instaclustr-maven-dev/snapshot</url>
+        </snapshotRepository>
+        <repository>
+          <id>instaclustr-maven-s3</id>
+          <url>s3://instaclustr-maven-dev/release</url>
+        </repository>
+      </distributionManagement>
+    </profile>
+    <profile>
+      <id>preprod</id>
+      <properties>
+        <profile.name>preprod</profile.name>
+      </properties>
+      <distributionManagement>
+        <snapshotRepository>
+          <id>instaclustr-maven-s3</id>
+          <url>s3://instaclustr-maven-preprod/snapshot</url>
+        </snapshotRepository>
+        <repository>
+          <id>instaclustr-maven-s3</id>
+          <url>s3://instaclustr-maven-preprod/release</url>
+        </repository>
+      </distributionManagement>
+    </profile>
     <profile>
       <id>sign-artifacts</id>
       <build>
